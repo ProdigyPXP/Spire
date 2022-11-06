@@ -108,3 +108,6 @@ pnpm-lock.yml
 pnpm-lock.yaml
 yarn-lock.yml
 yarn-lock.yaml
+
+.DS_Store
+/idea/
