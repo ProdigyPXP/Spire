@@ -18,5 +18,5 @@ export default function plugin (file : SpireFile) : SpireFile {
         }
     }
 
-    return new SpireFile(file.path, code);
+    return new SpireFile(file.path, output);
 }

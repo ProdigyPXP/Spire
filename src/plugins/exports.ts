@@ -1,6 +1,6 @@
 import { SpireFile } from "../core/project.js";
 import strip from "strip-indent";
-import { PROJECT } from "src/working.js";
+import { PROJECT } from "../working.js";
 
 /** 
  * Exports plugin for Spire to extract export statements from a file.

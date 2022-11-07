@@ -18,3 +18,15 @@ export class SpireFile {
         this.contents = contents;
     }
 }
+
+export function CompileProject (Project : project) {
+
+    Project.files.forEach(element => {
+        process.stdout.write("[FILE " + element.path + " |||||  " + element.contents + "   ]")
+    });
+
+    Project.references.forEach((key, value) => {
+        process.stdout.write("[Key: " + key + " |||| Value: " + value + "   ]")
+    });
+
+}
