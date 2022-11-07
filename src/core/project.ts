@@ -25,7 +25,7 @@ export function CompileProject (Project : project) {
         process.stdout.write("[FILE " + element.path + " |||||  " + element.contents + "   ]")
     });
 
-    Project.references.forEach((key, value) => {
+    Project.references.forEach((value, key) => {
         process.stdout.write("[Key: " + key + " |||| Value: " + value + "   ]")
     });
 
