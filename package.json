@@ -1,0 +1,26 @@
+{
+  "name": "spire.bf",
+  "version": "0.0.1",
+  "description": "A complete Brainfuck specification for modularity. Just like EMCAscript is for JS, Spire is for BF.",
+  "main": "dist/spire.js",
+  "type": "module",
+  "private": false,
+  "scripts": {
+    "build": "cd scripts && sh build.sh"
+  },
+  "keywords": [
+    "brainfuck"
+  ],
+  "author": {
+    "name": "ProdigyPXP",
+    "email": "gemsvido@gmail.com",
+    "url": "https://github.com/ProdigyPXP"
+  },
+  "license": "SEE LICENSE IN LICENSE.txt",
+  "devDependencies": {
+    "typescript": "^4.8.4"
+  },
+  "dependencies": {
+    "strip-indent": "^4.0.0"
+  }
+}
