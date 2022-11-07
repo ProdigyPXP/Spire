@@ -1,9 +1,9 @@
-import exports, { SpireFile } from "./exports.js";
+import project, { SpireFile } from "./project.js";
 
 /**
  * Sifts all the files through a plugin
  */
-export default function sift (files : exports, plugin: (arg0: SpireFile) => SpireFile) {
+export default function sift (files : project, plugin: (arg0: SpireFile) => SpireFile) {
 
 
     for (let file of files.files) {

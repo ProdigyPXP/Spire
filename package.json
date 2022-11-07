@@ -18,9 +18,11 @@
   },
   "license": "SEE LICENSE IN LICENSE.txt",
   "devDependencies": {
+    "@types/node": "^18.11.9",
     "typescript": "^4.8.4"
   },
   "dependencies": {
+    "path": "^0.12.7",
     "strip-indent": "^4.0.0"
   }
 }

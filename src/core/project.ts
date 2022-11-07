@@ -1,6 +1,8 @@
-export default interface exports {
+export default interface project {
 
     files : Array<SpireFile>;
+
+    references : Map<string, string>;
 
 }
 

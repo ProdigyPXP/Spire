@@ -1,4 +1,4 @@
-import { SpireFile } from "../core/exports.js";
+import { SpireFile } from "../core/project.js";
 import strip from "strip-indent";
 
 /** 
@@ -14,7 +14,7 @@ export default function plugin (file : SpireFile) : SpireFile {
 
         // Excluding whitespaces, If the line starts with #, treat it as a comment.
         if (!(strip(line).startsWith("#"))) {
-            output += lines;
+            output += line;
         }
     }
 
