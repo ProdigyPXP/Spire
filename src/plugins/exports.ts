@@ -14,7 +14,7 @@ export default function plugin (file : SpireFile) : SpireFile {
     for (let line of lines) { 
 
         // If the file doesn't have any exports, don't bother with it.
-        if ((strip(line).includes("export"))) {
+        if (!(strip(line).includes("export"))) {
             output += line;
         } else {
 
