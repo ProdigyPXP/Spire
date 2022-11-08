@@ -20,8 +20,7 @@ export default function Spire () {
         references: new Map<string, string>()
     })
 
-    sift(PROJECT, CommentsPlugin)
-    sift(PROJECT, ExportsPlugin)
+    SetProject(sift(PROJECT, [CommentsPlugin, ExportsPlugin]));
 
     CompileProject(PROJECT);
 }

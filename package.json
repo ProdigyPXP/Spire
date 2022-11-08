@@ -7,7 +7,9 @@
   "private": false,
   "scripts": {
     "build": "cd scripts && sh build.sh",
-    "start": "node dist/spire"
+    "start": "node dist/spire",
+
+    "bs": "pnpm build && pnpm start"
   },
   "keywords": [
     "brainfuck"

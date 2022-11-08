@@ -15,8 +15,8 @@ export default function plugin (file : SpireFile) : SpireFile {
     for (let line of lines) { 
 
         // If the file doesn't have any exports, don't bother with it.
-        if (!(strip(line).includes("export"))) {
-            output += line;
+        if (!strip(line).includes("export")) {
+            output += line + "\n";
         } else {
 
             let tokens : string[] = line.split(" ");
@@ -40,10 +40,9 @@ export default function plugin (file : SpireFile) : SpireFile {
         }
     }
 
-    identifiers.forEach(function (identifier) {
+    for (let identifier of identifiers) {
         PROJECT.references.set(identifier, output);
-    })
-
+    };
 
     return new SpireFile(file.path, output);
 }

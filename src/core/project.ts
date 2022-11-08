@@ -8,7 +8,7 @@ export default interface project {
 
 export class SpireFile {
     
-    public readonly path : string;
+    public path : string;
 
     public contents : string;
 
@@ -21,11 +21,14 @@ export class SpireFile {
 
 export function CompileProject (Project : project) {
 
-    Project.files.forEach(element => {
-        process.stdout.write("[FILE " + element.path + " |||||  " + element.contents + "   ]")
-    });
+    for (let file of Project.files) {
 
-    Project.references.forEach((value, key) => {
+        file.path = file.path.replace(".spire", ".bf");
+
+        process.stdout.write("[File " + file.path + " |||||  " + file.contents + "   ]")
+    };
+
+    Project.references.forEach(function (value, key) {
         process.stdout.write("[Key: " + key + " |||| Value: " + value + "   ]")
     });
 

@@ -14,7 +14,7 @@ export default function plugin (file : SpireFile) : SpireFile {
 
         // Excluding whitespaces, If the line starts with #, treat it as a comment.
         if (!(strip(line).startsWith("#"))) {
-            output += line;
+            output += line + "\n";
         }
     }
 
