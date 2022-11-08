@@ -25,11 +25,12 @@ export function CompileProject (Project : project) {
 
         file.path = file.path.replace(".spire", ".bf");
 
-        process.stdout.write("[File " + file.path + " |||||  " + file.contents + "   ]")
+        if (file.path.includes("index.bf"))
+        process.stdout.write("{Path: " + file.path + "\n, Contents: " + file.contents + "\n}\n");
     };
 
     Project.references.forEach(function (value, key) {
-        process.stdout.write("[Key: " + key + " |||| Value: " + value + "   ]")
+        process.stdout.write(`{Key: ${key}, Value: ${value}}\n`)
     });
 
 }

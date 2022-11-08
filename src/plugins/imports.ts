@@ -1,5 +1,4 @@
 import { SpireFile } from "../core/project.js";
-import strip from "strip-indent";
 import { PROJECT } from "../working.js";
 
 /** 
@@ -14,16 +13,18 @@ export default function plugin (file : SpireFile) : SpireFile {
 
     for (let line of lines) { 
 
-        // If the file doesn't have any imports, don't bother with it.
-        if (!strip(line).includes("import")) {
+
+        if (line.includes("$")) {
 
             for (let item of imports) {
-                line.replaceAll("$" + item, PROJECT.references.get(item)!);
+                
+            
+                line.replaceAll("$HelloWorld", PROJECT.references.get(item)!);
             };
 
             output += line + "\n";
 
-        } else {
+        } else if (line.includes("import")) {
 
             let tokens : string[] = line.split(" ");
             let index = tokens.indexOf("import");
@@ -34,11 +35,17 @@ export default function plugin (file : SpireFile) : SpireFile {
 
             if (as !== "as") {
                 imports.push(item);
+                process.stdout.write("\nItem " + item)
             } else {
                 imports.push(identifier);
+                process.stdout.write("\nIdent " + identifier)
+
             }
 
 
+        } else {
+            // If the line isn't an import and uses no imports, do nothing with the line.
+            output += line + "\n";
         }
     }
 
