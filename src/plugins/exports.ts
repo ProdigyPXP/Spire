@@ -10,6 +10,7 @@ export default function plugin (file : SpireFile) : SpireFile {
     let code : string = file.contents;
     let lines : string[] = code.split("\n");
     let output : string = "";
+    let identifiers : string[] = [];
 
     for (let line of lines) { 
 
@@ -33,10 +34,16 @@ export default function plugin (file : SpireFile) : SpireFile {
                 throw new Error("Non-all exports are not implemented:\n" + line)
             }
 
-            PROJECT.references.set(identifier, code)
+
+            identifiers.push(identifier);
 
         }
     }
+
+    identifiers.forEach(function (identifier) {
+        PROJECT.references.set(identifier, output);
+    })
+
 
     return new SpireFile(file.path, output);
 }
