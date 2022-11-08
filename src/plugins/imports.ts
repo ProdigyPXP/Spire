@@ -19,7 +19,7 @@ export default function plugin (file : SpireFile) : SpireFile {
             for (let item of imports) {
                 
             
-                line.replaceAll("$HelloWorld", PROJECT.references.get(item)!);
+                line.replaceAll("$" + item, PROJECT.references.get(item)!);
             };
 
             output += line + "\n";
