@@ -26,7 +26,7 @@ export default function plugin (file : SpireFile) : SpireFile {
         } else {
 
             let tokens : string[] = line.split(" ");
-            let index = tokens.indexOf("export");
+            let index = tokens.indexOf("import");
             let item = tokens[index + 1]!;
             let as = tokens[index + 2]!;
             let identifier = tokens[index + 3]!;
