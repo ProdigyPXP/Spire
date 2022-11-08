@@ -5,6 +5,7 @@ import sift from "./core/sift.js";
 import { dirname } from "./dirname.js";
 import CommentsPlugin from "./plugins/comments.js";
 import ExportsPlugin from "./plugins/exports.js";
+import MinifierPlugin from "./plugins/minifier.js";
 import { PROJECT, SetProject } from "./working.js";
 
 export default function Spire () {
@@ -20,7 +21,7 @@ export default function Spire () {
         references: new Map<string, string>()
     })
 
-    SetProject(sift(PROJECT, [CommentsPlugin, ExportsPlugin]));
+    SetProject(sift(PROJECT, [CommentsPlugin, ExportsPlugin, MinifierPlugin]));
 
     CompileProject(PROJECT);
 }
