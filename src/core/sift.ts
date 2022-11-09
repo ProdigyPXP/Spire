@@ -4,15 +4,15 @@ import project from "./project.js";
 /**
  * Sifts all the files through all given plugins
  */
-export default function sift (files : project, plugins: plugin[]) : project {
+export default function sift (Project : project, plugins: plugin[]) : project {
 
-    let newFiles : project = files;
+    let newFiles : project = Project;
 
-    for (let file of files.files) {
+    for (let plugin of plugins) {
 
-        plugins.forEach(function (plugin : plugin) {
-            newFiles.files[files.files.indexOf(file)] = plugin(file);
-        });
+        for (let file of Project.files) {
+            newFiles.files[Project.files.indexOf(file)] = plugin(file);
+        };
 
     }
 
