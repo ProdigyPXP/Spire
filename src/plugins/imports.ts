@@ -17,10 +17,11 @@ export default function plugin (file : SpireFile) : SpireFile {
         if (line.includes("$")) {
 
             for (let item of imports) {
+
+                if (line.includes("$" + item))
+                    line = line.replaceAll("$" + item, PROJECT.references.get(item)!);
                 
-            
-                line.replaceAll("$" + item, PROJECT.references.get(item)!);
-            };
+             };
 
             output += line + "\n";
 
@@ -39,7 +40,6 @@ export default function plugin (file : SpireFile) : SpireFile {
             } else {
                 imports.push(identifier);
                 process.stdout.write("\nIdent " + identifier)
-
             }
 
 

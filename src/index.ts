@@ -11,15 +11,18 @@ import { PROJECT, SetProject } from "./working.js";
 
 export default function Spire () {
 
-    const HelloWorld_path : string = path.join(dirname, "examples/HelloWorld/HelloWorld.spire");
-    const Index_path : string = path.join(dirname, "examples/HelloWorld/index.spire");
+    let files : SpireFile[] = [];
+    const HelloWorld : string = path.join(dirname, "examples", "HelloWorld");
 
-    const HelloWorld : string = fs.readFileSync(HelloWorld_path, "utf8");
-    const Index : string = fs.readFileSync(Index_path, "utf8");
+    fs.readdirSync(HelloWorld).forEach(function (filePath) {
+        process.stdout.write("\n" + filePath + "\n")
+        files.push(new SpireFile(filePath, fs.readFileSync(path.join(HelloWorld, filePath), "utf8")));  
+    });
+
 
 
     SetProject({
-        files: [new SpireFile(HelloWorld_path, HelloWorld), new SpireFile(Index_path, Index)],
+        files: files,
         references: new Map<string, string>()
     })
 
