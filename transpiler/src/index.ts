@@ -12,7 +12,7 @@ import { PROJECT, SetProject } from "./working.js";
 export default function Spire () {
 
     let files : SpireFile[] = [];
-    const HelloWorld : string = path.join(dirname, "examples", "HelloWorld");
+    const HelloWorld : string = path.join(dirname, "..", "examples", "HelloWorld");
 
     fs.readdirSync(HelloWorld).forEach(function (filePath) {
         process.stdout.write("\n" + filePath + "\n")
