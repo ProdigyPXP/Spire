@@ -1,6 +1,7 @@
 import args from "./lib/args.js";
-import { downloadPackage } from "./packages/download.js";
 
-if (args.task === "i" && args["hello-world"] == true) {
-    downloadPackage("hello-world");
+for (const item of Object.entries(args)) {
+    console.log(item)
 }
+
+// downloadPackage("hello-world");
