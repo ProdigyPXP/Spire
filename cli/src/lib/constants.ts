@@ -1,4 +1,7 @@
 import path from "path";
+import { fileURLToPath } from "url";
+
+const __dirname = path.resolve(fileURLToPath(import.meta.url), "..");
 
 const constants = {
     
