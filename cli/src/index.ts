@@ -1,6 +1,8 @@
-import argparse from "./lib/argparse.js";
+import args from "./lib/args.js";
+import { downloadPackage } from "./packages/download.js";
 
-export const task = process.argv[0];
-export const args = argparse(process.argv.splice(1, process.argv.length));
-
-process.stdout.write(JSON.stringify(args));
+for (const item of Object.entries(args)) {
+    if (args.task === "i" && args["hello-world"] == true) {
+        downloadPackage("hello-world");
+    }
+}
