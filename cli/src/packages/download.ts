@@ -1,10 +1,11 @@
 import fetch from "sync-fetch";
-import yaml from "yaml";
 import ver from "compare-versions";
 import { download, FileOptions} from "progressive-downloader";
 import constants from "../lib/constants.js";
+import Package from "./Package.js";
+import parsePackage from "./parsePackage.js";
 
-export function downloadPackage (name : string, version : string = "latest") {
+export function downloadPackage (name : string, version : string = "latest") : Package | null {
 
 
     const packageYml = `${constants.store_url}/packages/${name}/package.yml`;
@@ -12,16 +13,17 @@ export function downloadPackage (name : string, version : string = "latest") {
 
     const request = fetch(packageYml);
 
-    console.log(packageYml)
 
-    if (!request.ok) return console.log("package not found");
+    if (!request.ok) { console.log("package not found"); return null; }
 
-    const target = yaml.parse(request.text());
+    const target = parsePackage(request.text());
+    if (target === null) return null;
 
     if (version !== "latest") {
-        const latestVer : number = target["version"];
-        if (!ver.satisfies(latestVer.toString(), target)) {
-            return console.log("bad version lol")
+        const latestVer : string = target.version;
+        if (!ver.satisfies(latestVer, version)) {
+            console.log("bad version lol");
+            return null;
         }
     }
 
@@ -36,40 +38,35 @@ export function downloadPackage (name : string, version : string = "latest") {
 
     if (target.exports) {
 
-        const exps : [string, any][] = Object.entries(target.exports);
 
-        for (const item of exps) {
+        for (const item of target.exports) {
 
-            const ItemName = Object.entries(item[1])[0]![0];
+            let Item = Object.entries(item)[0]!
+            let ItemFile = Item[0];
+            let ItemName = Item[1];
 
-            console.log(ItemName);
-            console.log(JSON.stringify(item));
+            console.log(`[${target.name}] Export ${ItemName} from ${ItemFile}`);
 
             todoFiles.push({
-                url: `${constants.store_url}/packages/${name}/${ItemName}`,
-                path: `${depDir}/${ItemName}`
+                url: `${constants.store_url}/packages/${name}/${ItemFile}`,
+                path: `${depDir}/${ItemFile}`
             });
 
         }
     }
 
+    const TotalFiles = todoFiles.length;
+
 
     download(todoFiles, 
         _ => {},
         f =>{
-          console.log("File: " + f)  
+          console.log(`[${target.name}] Downloaded file ${f} of ${TotalFiles}`)  
         }
     ).catch(reason => {
         console.error(reason);
-    })
+    });
 
 
-
-    
-
-    
-    
-
-
-
+    return target;
 }

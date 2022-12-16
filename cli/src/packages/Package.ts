@@ -1,4 +1,4 @@
-import KvArray from "../lib/KvArray";
+import KvArray from "../lib/KvArray.js";
 
 export default class Package {
 
