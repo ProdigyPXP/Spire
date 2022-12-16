@@ -8,7 +8,8 @@
   "scripts": {
     "build": "cd scripts && sh build.sh",
     "start": "node dist",
-    "bs": "pnpm build && pnpm start"
+    "bs": "pnpm build && pnpm start",
+    "alias": "alias spire=\"node dist/index.js\""
   },
   "keywords": [
     "brainfuck"
