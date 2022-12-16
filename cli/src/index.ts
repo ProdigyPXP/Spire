@@ -1,16 +1,12 @@
-import InstallPackage from "./InstallPackage.js";
-import args, { argv, task } from "./lib/args.js";
+import Commands from "./commands/Commands.js";
+import args from "./lib/args.js";
 import constants from "./lib/constants.js";
 
 for (const item of Object.entries(args)) {
-    console.log(item)
+    console.log(item) // console.log all the args
 }
 
+Commands();
 
-if (task === "install" || task === "i") {
-    const td = argv[2]!;
-    console.log(td);
-    InstallPackage(td)
-}
 
 console.log("Spire Modules: " + constants.spire_modules)

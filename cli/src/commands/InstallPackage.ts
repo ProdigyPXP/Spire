@@ -1,5 +1,5 @@
-import { downloadPackage } from "./packages/download.js";
-import hasLocal from "./packages/hasLocal.js";
+import { downloadPackage } from "../packages/download.js";
+import hasLocal from "../packages/hasLocal.js";
 
 export default function InstallPackage (name : string, version : string = "latest") : boolean {
 
