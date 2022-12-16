@@ -6,7 +6,7 @@ import arge from "arge";
 const argparse = arge.arge;
 
 
-const argv : string[] = process.argv.splice(1, process.argv.length);
+export const argv : string[] = process.argv.splice(1, process.argv.length);
 
 
 export let args : any = argparse(argv);
