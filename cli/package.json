@@ -32,6 +32,6 @@
     "progressive-downloader": "^2.0.2",
     "sync-fetch": "^0.4.2",
     "transpiler": "file:../transpiler",
-    "yaml": "^2.1.3"
+    "yaml": "^2.2.0"
   }
 }
