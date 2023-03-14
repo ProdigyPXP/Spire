@@ -21,17 +21,17 @@
   },
   "license": "SEE LICENSE IN LICENSE.txt",
   "devDependencies": {
-    "@types/node": "^18.11.9",
+    "@types/node": "^18.15.3",
     "@types/sync-fetch": "^0.4.0",
-    "typescript": "^4.8.4"
+    "typescript": "^4.9.5"
   },
   "dependencies": {
-    "arge": "^1.2.0",
-    "compare-versions": "^5.0.1",
+    "arge": "^1.5.1",
+    "compare-versions": "^5.0.3",
     "path": "^0.12.7",
     "progressive-downloader": "^2.0.2",
     "sync-fetch": "^0.4.2",
     "transpiler": "file:../transpiler",
-    "yaml": "^2.1.3"
+    "yaml": "^2.2.1"
   }
 }
