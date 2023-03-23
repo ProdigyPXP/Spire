@@ -1,4 +1,10 @@
+import fs from "fs";
+import path from "path";
+
+
 export default interface project {
+
+    path: string,
 
     files : Array<SpireFile>;
 
@@ -24,9 +30,10 @@ export function CompileProject (Project : project) {
     for (let file of Project.files) {
 
         file.path = file.path.replace(".spire", ".bf");
-
-        if (file.path.includes("index.bf"))
-        process.stdout.write("{Path: " + file.path + "\n, Contents: " + file.contents + "\n}\n");
+        const OutPath = path.join(Project.path, "dist", file.path);
+        
+        process.stdout.write("{Path: " + OutPath + "\n, Contents: " + file.contents + "\n}\n");
+        fs.writeFileSync(OutPath, file.contents)
     };
 
     Project.references.forEach(function (value, key) {

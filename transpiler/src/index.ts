@@ -13,15 +13,17 @@ export default function Spire () {
 
     let files : SpireFile[] = [];
     const HelloWorld : string = path.join(dirname, "..", "examples", "HelloWorld");
+    const src = path.join(HelloWorld, "src")
 
-    fs.readdirSync(HelloWorld).forEach(function (filePath) {
+    fs.readdirSync(src).forEach(function (filePath) {
         process.stdout.write("\n" + filePath + "\n")
-        files.push(new SpireFile(filePath, fs.readFileSync(path.join(HelloWorld, filePath), "utf8")));  
+        files.push(new SpireFile(filePath, fs.readFileSync(path.join(src, filePath), "utf8")));  
     });
 
 
 
     SetProject({
+        path: HelloWorld,
         files: files,
         references: new Map<string, string>()
     })

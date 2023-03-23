@@ -1,10 +1,9 @@
 {
   "name": "@spirebf/spire",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A complete Brainfuck specification for modularity. Just like EMCAscript is for JS, Spire is for BF.",
   "main": "dist/spire.js",
   "type": "module",
-  "private": false,
   "scripts": {
     "build": "cd scripts && sh build.sh",
     "start": "node dist/spire",
