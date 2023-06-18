@@ -21,7 +21,7 @@
   },
   "license": "SEE LICENSE IN LICENSE.txt",
   "devDependencies": {
-    "@types/node": "^18.16.17",
+    "@types/node": "^18.16.18",
     "@types/sync-fetch": "^0.4.0",
     "typescript": "^4.9.5"
   },
@@ -30,7 +30,7 @@
     "compare-versions": "^5.0.3",
     "path": "^0.12.7",
     "progressive-downloader": "^2.0.2",
-    "sync-fetch": "^0.4.2",
+    "sync-fetch": "^0.4.5",
     "transpiler": "file:../transpiler",
     "yaml": "^2.3.1"
   }
