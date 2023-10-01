@@ -21,12 +21,12 @@
   },
   "license": "SEE LICENSE IN LICENSE.txt",
   "devDependencies": {
-    "@types/node": "^18.17.19",
-    "@types/sync-fetch": "^0.4.0",
+    "@types/node": "^18.18.1",
+    "@types/sync-fetch": "^0.4.1",
     "typescript": "^4.9.5"
   },
   "dependencies": {
-    "arge": "^1.5.1",
+    "arge": "^1.5.2",
     "compare-versions": "^5.0.3",
     "path": "^0.12.7",
     "progressive-downloader": "^2.0.2",
