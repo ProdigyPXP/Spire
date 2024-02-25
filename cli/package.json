@@ -21,7 +21,7 @@
   },
   "license": "SEE LICENSE IN LICENSE.txt",
   "devDependencies": {
-    "@types/node": "^18.19.17",
+    "@types/node": "^18.19.18",
     "@types/sync-fetch": "^0.4.3",
     "typescript": "^4.9.5"
   },
