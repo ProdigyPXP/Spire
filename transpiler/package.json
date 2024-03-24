@@ -19,7 +19,7 @@
   },
   "license": "SEE LICENSE IN LICENSE.txt",
   "devDependencies": {
-    "@types/node": "^18.19.24",
+    "@types/node": "^18.19.26",
     "typescript": "^4.9.5"
   },
   "dependencies": {
